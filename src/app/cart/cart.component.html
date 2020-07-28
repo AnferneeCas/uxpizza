@@ -1,8 +1,10 @@
 <div class="container-fluid h-100">
-  <div class="row h-100">
+  <login [(show)]="show"></login>
+
+  <!-- <div class="row h-100">
     <div
       class="col-12 col-md-8 h-100"
-      style="background-color: black; overflow-y: auto;"
+      style="background-color: #a52422; overflow-y: auto;"
     >
       <div class="card mb-3">
         <div class="row no-gutters">
@@ -13,9 +15,9 @@
               alt="..."
             />
           </div>
-          <div class="col-md-8">
+          <div class="col-md-8 d-flex" style="flex-wrap: wrap;">
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
+              <h5 class="card-title">Nombre Producto</h5>
               <p class="card-text">
                 This is a wider card with supporting text below as a natural
                 lead-in to additional content. This content is a little bit
@@ -25,20 +27,81 @@
                 <small class="text-muted">Last updated 3 mins ago</small>
               </p>
             </div>
+            <div class="card-footer w-100">
+              <div class="d-flex justify-content-between row">
+                <div class="col-md-6 col-12 row">
+                  <div class="col-12 col-md-7">
+                    <h3 style="display: inline;">Cantidad:</h3>
+                  </div>
+                  <div class="col-12 col-md-5">
+                    <input
+                      type="number"
+                      class="form-control"
+                      style="display: inline; margin-left: 15px;"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6 col-12 row">
+                  <div class="col-12 col-md-7">
+                    <h3 style="display: inline;">Subtotal:</h3>
+                  </div>
+                  <div class="col-12 col-md-5">
+                    <input
+                      type="number"
+                      class="form-control"
+                      style="display: inline; margin-left: 15px;"
+                      disabled
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-12 col-md-4" style="background-color: aqua;">
-      <div>
+    <div
+      class="col-12 col-md-4"
+      style="background-color: white; position: sticky; top: 0; bottom: 0;"
+    >
+      <div class="h-100">
         <div class="row">
           <div class="col-12">
-            <p>Subtotal:</p>
-
-            <p>200</p>
+            <h1><b>Factura:</b></h1>
           </div>
+
+          <div class="col-6">
+            <div class="d-flex align-items-center" style="font-size: 35px;">
+              Subtotal:
+            </div>
+          </div>
+          <div class="col-6 d-flex justify-content-center align-items-center">
+            <div class="d-flex align-items-center" style="font-size: 35px;">
+              200
+            </div>
+          </div>
+          <hr style="width: 100%; background-color: black; margin: 0;" />
+          <div class="col-6" style="font-size: 35px;">
+            TOTAL:
+          </div>
+          <div
+            class="col-6 d-flex justify-content-center align-items-center"
+            style="font-size: 35px;"
+          >
+            200
+          </div>
+          <hr style="width: 100%; background-color: black; margin: 0;" />
+        </div>
+
+        <div
+          style="height: calc(100% - 162px);"
+          class="w-100 d-flex align-items-center"
+        >
+          <button class="btn btn-success w-100 mt-1 mb-1" (click)="login()">
+            Iniciar Sesion para realizar compra
+          </button>
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 </div>
