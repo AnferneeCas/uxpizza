@@ -1,0 +1,24 @@
+#carouselExampleSlidesOnly {
+  position: relative;
+}
+.container {
+  position: relative;
+  margin-top: 54px;
+}
+
+.carousel-caption {
+  bottom: 300px;
+}
+
+.card {
+  background-color: #a52422;
+  color: white;
+}
+
+.jumbotron {
+  background-image: url("https://sidewalkpizzeria.com/wp-content/uploads/2017/07/home_splash_bg.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 500px;
+}
