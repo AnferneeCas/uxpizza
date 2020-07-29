@@ -7,6 +7,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { CartComponent } from './cart/cart.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './login/login.component';
+import { LiveChatComponent } from './live-chat/live-chat.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,6 +15,7 @@ import { LoginComponent } from './login/login.component';
     NavbarComponent,
     CartComponent,
     LoginComponent,
+    LiveChatComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],

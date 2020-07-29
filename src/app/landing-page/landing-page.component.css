@@ -21,4 +21,29 @@
   background-position: center center;
   background-repeat: no-repeat;
   height: 500px;
+  margin-bottom: 2px;
+}
+
+.live-chat-container {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: calc(100% - 80px);
+  height: 35px;
+
+  width: 150px;
+}
+
+.chat {
+  position: absolute;
+  top: -250px;
+  left: -150px;
+  width: 250px;
+  height: 250px;
+  background-color: red;
+  display: none;
+}
+
+.live-chat-container:hover .chat {
+  display: flex;
 }

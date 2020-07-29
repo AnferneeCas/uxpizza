@@ -1,0 +1,50 @@
+.live-chat-container {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: calc(100% - 80px);
+  height: 35px;
+
+  width: 150px;
+}
+
+.chat {
+  position: absolute;
+  top: -350px;
+  left: -155px;
+  width: 250px;
+  height: 350px;
+  background-color: white;
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  flex-direction: row;
+  justify-content: space-between;
+  display: none;
+}
+
+.live-chat-container:hover .chat {
+  display: flex;
+}
+
+.chat-history {
+  height: calc(100% - 48px);
+
+  background-color: wheat;
+}
+
+.send-message {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.recieved-message {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.header {
+  text-align: center;
+  background-color: gray;
+  color: white;
+}
