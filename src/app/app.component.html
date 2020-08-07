@@ -1,3 +1,5 @@
-<app-navbar></app-navbar>
+<ng-container *ngIf="!admin">
+  <app-navbar></app-navbar>
+</ng-container>
 
 <router-outlet></router-outlet>

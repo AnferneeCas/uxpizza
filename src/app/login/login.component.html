@@ -24,8 +24,10 @@
             <input
               type="text"
               class="form-control"
-              placeholder="Usuario"
+              placeholder="correo@gmail.om"
               required="required"
+              [(ngModel)]="email"
+              name="email"
             />
           </div>
           <div class="form-group">
@@ -34,6 +36,8 @@
               class="form-control"
               placeholder="Contraseña"
               required="required"
+              [(ngModel)]="pass"
+              name="password"
             />
           </div>
           <div class="form-group">
@@ -41,6 +45,7 @@
               type="submit"
               class="btn btn-primary btn-block btn-lg"
               value="Iniciar sesion"
+              (click)="login($event)"
             />
           </div>
           <div class="form-group">
@@ -48,6 +53,7 @@
               type="submit"
               class="btn btn-primary btn-block btn-lg"
               value="Registrarse"
+              (click)="register($event)"
             />
           </div>
         </form>

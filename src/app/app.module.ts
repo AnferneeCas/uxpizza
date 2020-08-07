@@ -8,6 +8,11 @@ import { CartComponent } from './cart/cart.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './login/login.component';
 import { LiveChatComponent } from './live-chat/live-chat.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { AdminLoginComponent } from '../app/admin/login/login.component';
+import { MenuComponent } from '../app/admin/menu/menu.component';
+import { DashboardComponent } from '../app/admin/dashboard/dashboard.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,8 +21,11 @@ import { LiveChatComponent } from './live-chat/live-chat.component';
     CartComponent,
     LoginComponent,
     LiveChatComponent,
+    AdminLoginComponent,
+    MenuComponent,
+    DashboardComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

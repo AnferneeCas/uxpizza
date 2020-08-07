@@ -15,7 +15,7 @@
 </div> -->
 <div>
   <div class="jumbotron"></div>
-  <div class="container-fluid">
+  <div class="container">
     <div class="row">
       <!-- <div class="col-12 col-md-4">
         <div class="card" style="width: 18rem;">
@@ -35,7 +35,10 @@
         </div>
       </div> -->
 
-      <div class="col-12 col-md-4">
+      <div
+        *ngFor="let menu of menu"
+        class="col-12 col-md-4 d-flex justify-content-center mb-3"
+      >
         <div class="card" style="width: 18rem;">
           <img
             src="https://cdn2.cocinadelirante.com/sites/default/files/styles/gallerie/public/images/2017/04/pizzapepperoni0.jpg"
@@ -43,19 +46,18 @@
             alt="..."
           />
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
+            <h5 class="card-title">{{ menu.name }}</h5>
             <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
+              {{ menu.description }}
             </p>
-            <a href="#" class="btn btn-primary w-100">
+            <button class="btn btn-primary w-100" (click)="addToCart(menu)">
               <img
                 src="https://cdn1.iconfinder.com/data/icons/birthday-30/64/pizza_food_slice_piece_fast_-512.png"
                 style="height: 35px; width: 35px;"
                 alt=""
               />
-              Comprar</a
-            >
+              Comprar ( L.{{ menu.price }} )
+            </button>
           </div>
         </div>
       </div>

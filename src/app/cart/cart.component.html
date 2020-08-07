@@ -5,8 +5,15 @@
       class="col-12 col-md-8 h-100"
       style="background-color: #a52422; overflow-y: auto;"
     >
-      <div class="card mb-3">
+      <div class="card mb-3" *ngFor="let menu of cart">
         <div class="row no-gutters">
+          <button
+            class="btn btn-sm btn-danger"
+            (click)="delete(menu.id)"
+            style="position: absolute; left: calc(100% - 30px); z-index: 100;"
+          >
+            <i class="far fa-trash-alt"></i>
+          </button>
           <div class="col-md-4">
             <img
               src="https://cdn2.cocinadelirante.com/sites/default/files/styles/gallerie/public/images/2017/04/pizzapepperoni0.jpg"
@@ -16,15 +23,11 @@
           </div>
           <div class="col-md-8 d-flex" style="flex-wrap: wrap;">
             <div class="card-body">
-              <h5 class="card-title">Nombre Producto</h5>
+              <h5 class="card-title">{{ menu.name }}</h5>
               <p class="card-text">
-                This is a wider card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
+                {{ menu.description }}
               </p>
-              <p class="card-text">
-                <small class="text-muted">Last updated 3 mins ago</small>
-              </p>
+              <p class="card-text"></p>
             </div>
             <div class="card-footer w-100">
               <div class="d-flex justify-content-between row">
@@ -37,6 +40,7 @@
                       type="number"
                       class="form-control"
                       style="display: inline; margin-left: 15px;"
+                      [(ngModel)]="menu.qt"
                     />
                   </div>
                 </div>
@@ -50,6 +54,7 @@
                       class="form-control"
                       style="display: inline; margin-left: 15px;"
                       disabled
+                      value="{{ menu.qt * menu.price }}"
                     />
                   </div>
                 </div>
@@ -69,16 +74,6 @@
             <h1><b>Factura:</b></h1>
           </div>
 
-          <div class="col-6">
-            <div class="d-flex align-items-center" style="font-size: 35px;">
-              Subtotal:
-            </div>
-          </div>
-          <div class="col-6 d-flex justify-content-center align-items-center">
-            <div class="d-flex align-items-center" style="font-size: 35px;">
-              200
-            </div>
-          </div>
           <hr style="width: 100%; background-color: black; margin: 0;" />
           <div class="col-6" style="font-size: 35px;">
             TOTAL:
@@ -87,7 +82,7 @@
             class="col-6 d-flex justify-content-center align-items-center"
             style="font-size: 35px;"
           >
-            200
+            {{ getTotal() }}
           </div>
           <hr style="width: 100%; background-color: black; margin: 0;" />
         </div>
@@ -96,9 +91,26 @@
           style="height: calc(100% - 162px);"
           class="w-100 d-flex align-items-center"
         >
-          <button class="btn btn-success w-100 mt-1 mb-1" (click)="login()">
+          <button
+            *ngIf="!isLogged()"
+            class="btn btn-success w-100 mt-1 mb-1"
+            (click)="login()"
+          >
             Iniciar Sesion para realizar compra
           </button>
+          <div *ngIf="isLogged()" class="container">
+            <div class="row">
+              <div class="col-12">
+                <button *ngIf="isLogged()" class="btn btn-info w-100 mt-1 mb-1">
+                  Realizar compra
+                </button>
+              </div>
+              <br />
+              <div class="col-12 text-center" *ngIf="isLogged()">
+                Recibiras un correo en : {{ getEmail() }}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
