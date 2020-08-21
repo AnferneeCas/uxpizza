@@ -13,6 +13,9 @@ import { FormsModule } from '@angular/forms';
 import { AdminLoginComponent } from '../app/admin/login/login.component';
 import { MenuComponent } from '../app/admin/menu/menu.component';
 import { DashboardComponent } from '../app/admin/dashboard/dashboard.component';
+import { Feathers } from './feathers.service';
+import { ApiService } from './api.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +29,7 @@ import { DashboardComponent } from '../app/admin/dashboard/dashboard.component';
     DashboardComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
-  providers: [],
+  providers: [Feathers, ApiService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

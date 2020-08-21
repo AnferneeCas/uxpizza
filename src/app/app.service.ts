@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { retry } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -27,6 +28,9 @@ export class AppService {
     return false;
   }
 
+  loginGithub() {
+    window.location.href = 'http://localhost:3030/oauth/github';
+  }
   login(data) {
     return this.http.post(this.base_url + 'authentication', data);
   }

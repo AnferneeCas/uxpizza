@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 
 import { AppService } from '../app.service';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'login',
   templateUrl: './login.component.html',
@@ -16,7 +17,21 @@ import { AppService } from '../app.service';
 export class LoginComponent implements OnInit {
   @Input() show;
   @Output() showChange: EventEmitter<boolean> = new EventEmitter<boolean>();
-  constructor(protected appService: AppService) {}
+  accessToken;
+  authEmail;
+  authNombre;
+  constructor(protected appService: AppService, private route: ActivatedRoute) {
+    this.route.queryParams.subscribe((params) => {
+      this.accessToken = params['accessToken'];
+      this.authEmail = params['email'];
+      this.authNombre = params['nombre'];
+      console.log(this.accessToken);
+      this.appService.setAuth({
+        accessToken: this.accessToken,
+        user: { email: this.authEmail, nombre: this.authNombre },
+      });
+    });
+  }
   @ViewChild('myModal', { static: true }) modal;
   public email = '';
   public pass = '';
@@ -34,6 +49,9 @@ export class LoginComponent implements OnInit {
       this.modal.nativeElement.click();
       this.showChange.emit(false);
     }
+  }
+  logWithGit() {
+    this.appService.loginGithub();
   }
 
   register($event) {

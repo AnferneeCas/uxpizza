@@ -20,11 +20,6 @@
   flex-grow: 1;
   flex-direction: row;
   justify-content: space-between;
-  display: none;
-}
-
-.live-chat-container:hover .chat {
-  display: flex;
 }
 
 .chat-history {
