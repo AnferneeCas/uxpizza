@@ -25,11 +25,19 @@ export class LoginComponent implements OnInit {
       this.accessToken = params['accessToken'];
       this.authEmail = params['email'];
       this.authNombre = params['nombre'];
-      console.log(this.accessToken);
-      this.appService.setAuth({
+      var data: any = {
+        user: {
+          email: this.authEmail,
+          name: this.authNombre,
+        },
         accessToken: this.accessToken,
-        user: { email: this.authEmail, nombre: this.authNombre },
-      });
+      };
+      if (this.accessToken) {
+        this.appService.setAuth({
+          accessToken: this.accessToken,
+          user: { email: this.authEmail, nombre: this.authNombre },
+        });
+      }
     });
   }
   @ViewChild('myModal', { static: true }) modal;

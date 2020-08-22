@@ -8,6 +8,11 @@
       style="height: 44px; width: 44px;"
       alt=""
   /></a>
+  <a *ngIf="appService.isLogged()" style="float: right;">
+    <button class="btn btn-danger" (click)="logOut()">
+      Salir
+    </button>
+  </a>
   <a routerLink="/cart">
     <button class="btn btn-danger" routerLink="/cart">
       <i class="fas fa-shopping-cart"></i>

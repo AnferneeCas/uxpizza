@@ -7,7 +7,11 @@ import { retry } from 'rxjs/operators';
 })
 export class AppService {
   public base_url = 'http://localhost:3030/';
-  constructor(protected http: HttpClient) {}
+  constructor(protected http: HttpClient) {
+    var storageAuth: any = JSON.parse(localStorage.getItem('auth'));
+    console.log(storageAuth);
+    this.auth = storageAuth;
+  }
   public auth = null;
   getMenu() {
     return this.http.get(this.base_url + 'menu');
@@ -18,7 +22,9 @@ export class AppService {
   }
 
   setAuth(data) {
+    console.log(data);
     this.auth = data;
+    localStorage.setItem('auth', JSON.stringify(data));
   }
 
   isLogged() {
@@ -43,11 +49,17 @@ export class AppService {
     return this.http.post(this.base_url + 'menu', data);
   }
 
+  getUser() {
+    return this.auth.user.email;
+  }
   getEmail() {
     return this.auth.user.email;
   }
 
   isAdmin() {
     return this.auth.user.admin;
+  }
+  logOut() {
+    localStorage.removeItem('auth');
   }
 }

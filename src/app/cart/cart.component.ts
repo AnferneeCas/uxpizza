@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
 import { AppService } from '../app.service';
 import { CartService } from '../cart/cart.service';
-import { from } from 'rxjs';
+declare var swal;
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -42,6 +42,23 @@ export class CartComponent implements OnInit {
       total += menu.price * menu.qt;
     }
     return total;
+  }
+
+  sendOrder() {
+    console.log('dfasdfa');
+    var data: any = {
+      cart: this.cart,
+    };
+    data.user = this.appService.getUser();
+    console.log(data);
+    this.appService.placeOrder(data).subscribe((res) => {
+      this.cart = [];
+      swal.fire({
+        title: 'Listo',
+        icon: 'success',
+        text: 'Gracias por tu compra',
+      });
+    });
   }
 
   delete(id) {
