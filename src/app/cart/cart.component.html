@@ -102,7 +102,7 @@
             <div class="row">
               <div class="col-12">
                 <button
-                  *ngIf="isLogged()"
+                  *ngIf="isLogged() && this.cart.length"
                   (click)="sendOrder()"
                   class="btn btn-info w-100 mt-1 mb-1"
                 >
