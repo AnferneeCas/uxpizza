@@ -56,6 +56,7 @@ export class AppService {
         'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('auth')).accessToken
     })
     };
+    console.log(data)
     return this.http.post(this.base_url + 'menu', data, httpOptions);
   }
 

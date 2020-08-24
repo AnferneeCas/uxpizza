@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from 'src/app/app.service';
 import * as _ from 'lodash';
+import { Router } from '@angular/router';
 
 
 
@@ -13,7 +14,8 @@ export class DashboardComponent implements OnInit{
   public menu=[];
   public show = false;
   constructor(
-    protected appService: AppService
+    protected appService: AppService,
+    protected router: Router
   ) {}
 
   ngOnInit(): void {
@@ -38,6 +40,11 @@ export class DashboardComponent implements OnInit{
       console.log(result);
     })
   }
-  
+  agregar(){
+    this.router.navigate(["/add"])
+  }
+  edit(id){
+    this.router.navigate(["/edit",id])
+  }
 
 }

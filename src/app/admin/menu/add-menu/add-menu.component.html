@@ -1,30 +1,35 @@
+<br>
+<br>
+<br>
+<br>
+<br>
 <div class="container">
     <h1>Add to Menu</h1>
-    <form [formGroup]="newMenuForm" novalidate (ngSubmit)="addToMenu(newMenuForm.value)">
+    <form [formGroup]="newMenuForm" novalidate (ngSubmit)="addToMenu(newMenuForm.value)" autocomplete="off">
 
         
 
         <div class="form-group">
             <label for="pizzaName">Nombre de la pizza</label>
-            <input formControlName="namePizza" type="text" class="form-control" id="namePizza" required name="namePizza">
+            <input formControlName="name" type="text" class="form-control" id="name" required name="name">
         </div>
 
         <div class="form-group">
             <label for="descriptionPizza">Descripcion de la pizza</label>
-            <input formControlName="descriptionPizza" type="text" class="form-control" id="descriptionPizza" required name="descriptionPizza">
+            <input formControlName="description" type="text" class="form-control" id="description" required name="description">
         </div>
 
         <div class="form-group">
             <label for="pricePizza">Precio de la pizza</label>
-            <input formControlName="pricePizza" type="number" class="form-control" id="pricePizza" name="pricePizza">
+            <input formControlName="price" type="number" class="form-control" id="price" name="price">
         </div>
 
         <div class="form-group">
             <label for="activePizza">Activo</label>
-            <input formControlName="activePizza" type="number" class="form-control" id="activePizza" name="activePizza">
+            <input formControlName="active" type="number" class="form-control" id="active" name="active" min="0" max="1">
         </div>
 
-        <button type="submit" class="btn btn-success">Save</button>
+        <button type="submit"  class="btn btn-success">Save</button>
         <button type="button" class="btn btn-default" (click)="cancel()">Cancelar</button>
 
     </form>

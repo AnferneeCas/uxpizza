@@ -15,30 +15,27 @@ export class EditMenuComponent implements OnInit {
   //Formulario
   editMenuForm: FormGroup;
   //Inputs
-  idPizza: FormControl;
-  namePizza: FormControl;
-  descriptionPizza: FormControl;
-  pricePizza: FormControl;
-  activePizza: FormControl;
+  id: FormControl;
+  name: FormControl;
+  description: FormControl;
+  price: FormControl;
+  active: FormControl;
 
   menu: any
 
   constructor(private service: AppService, private router: Router, private route: ActivatedRoute) { 
 
-    this.idPizza = new FormControl('',[Validators.required])
-    this.namePizza = new FormControl('',[Validators.required])
-    this.descriptionPizza = new FormControl('', [Validators.required])
-    this.pricePizza = new FormControl('',[Validators.required])
-    this.activePizza = new FormControl('',[Validators.required])
+    this.name = new FormControl('',[Validators.required])
+    this.description = new FormControl('', [Validators.required])
+    this.price = new FormControl('',[Validators.required])
 
     this.editMenuForm = new FormGroup({
 
-      idPizza: this.idPizza,
-      namePizza: this.namePizza,
-      descriptionPizza: this.descriptionPizza,
-      pricePizza: this.pricePizza,
-      activePizza: this.activePizza
-
+      // id: this.menu.id,
+      name: this.name,
+      description: this.description,
+      price: this.price,
+      // active: this.menu.active
     })
 
    }
@@ -47,19 +44,25 @@ export class EditMenuComponent implements OnInit {
   
     this.service.getMenuItem(+this.route.snapshot.params["id"]).subscribe(data => {
       this.menu = data;
+      console.log(data)
     })
+    this.editMenuForm.controls['name'].setValue(this.menu.name)
+    this.editMenuForm.controls['description'].setValue(this.menu.description)
+    this.editMenuForm.controls['price'].setValue(this.menu.price)
+
 
   }
 
   submitForm(item){
-    item.idPizza = this.menu.idPizza
-    this.service.updateMenu(item, item.idPizza).subscribe(data => {
-      this.router.navigate(['/'])
+    item.id= this.menu.id
+    item.active= this.menu.active
+    this.service.updateMenu(item, item.id).subscribe(data => {
+      this.router.navigate(['/dashboard'])
     })
   }
 
   cancel(){
-    this.router.navigate(['/'])
+    this.router.navigate(['/dashboard'])
   }
 
 }

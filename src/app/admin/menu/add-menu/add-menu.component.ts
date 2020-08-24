@@ -14,27 +14,26 @@ export class AddMenuComponent implements OnInit {
   //Formulario
   newMenuForm: FormGroup;
   //Inputs
-  idPizza: FormControl;
-  namePizza: FormControl;
-  descriptionPizza: FormControl;
-  pricePizza: FormControl;
-  activePizza: FormControl;
+ 
+  name: FormControl;
+  description: FormControl;
+  price: FormControl;
+  active: FormControl;
 
   constructor(private service: AppService, private router: Router) { 
 
-    this.idPizza = new FormControl('', [Validators.required])
-    this.namePizza = new FormControl('', [Validators.required])
-    this.descriptionPizza = new FormControl('', [Validators.required])
-    this.pricePizza = new FormControl('', [Validators.required])
-    this.activePizza = new FormControl('', [Validators.required])
+    this.name = new FormControl('', [Validators.required])
+    this.description = new FormControl('', [Validators.required])
+    this.price = new FormControl('', [Validators.required])
+    this.active = new FormControl('', [Validators.required])
 
     this.newMenuForm = new FormGroup({
 
-      idPizza: this.idPizza,
-      namePizza: this.namePizza,
-      descriptionPizza: this.descriptionPizza,
-      pricePizza: this.pricePizza,
-      activePizza: this.activePizza
+   
+      name: this.name,
+      description: this.description,
+      price: this.price,
+      active: this.active
 
     })
 
@@ -46,12 +45,12 @@ export class AddMenuComponent implements OnInit {
 
   addToMenu(info){
     this.service.addToMenu(info).subscribe(data => {
-      this.router.navigate(['/'])
+      this.router.navigate(['/dashboard'])
     })
   }
 
   cancel(){
-    this.router.navigate(['/'])
+    this.router.navigate(['/dashboard'])
   }
 
 }

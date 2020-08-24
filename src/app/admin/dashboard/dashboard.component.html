@@ -43,7 +43,7 @@
                   <th>Review</th>
                   <th>Activo</th>
                   <th>
-                    <button class="btn btn-outline-primary btn-sm">
+                    <button (click)="agregar()" class="btn btn-outline-primary btn-sm">
                       Agregar
                     </button>
                   </th>
@@ -78,7 +78,7 @@
                     
                   </td>
                   <td>
-                    <button  class="btn btn-outline-primary btn-sm">
+                    <button (click)="edit(Menu.id)" class="btn btn-outline-primary btn-sm">
                       Edit
                     </button>
                   </td>
