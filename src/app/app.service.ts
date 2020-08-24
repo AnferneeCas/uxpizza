@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { retry } from 'rxjs/operators';
 
 @Injectable({
@@ -33,10 +33,10 @@ export class AppService {
     }
     return false;
   }
-
   loginGithub() {
     window.location.href = 'http://localhost:3030/oauth/github';
   }
+
   login(data) {
     return this.http.post(this.base_url + 'authentication', data);
   }
@@ -45,8 +45,35 @@ export class AppService {
     return this.http.post(this.base_url + 'order', data);
   }
 
-  addToMenu(data) {
-    return this.http.post(this.base_url + 'menu', data);
+  addToMenu(id,data) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('auth')).accessToken
+    })
+    };
+    return this.http.post(this.base_url + 'menu', data, httpOptions);
+  }
+
+  desactivarMenu(data,id){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('auth')).accessToken
+    })
+    };
+    console.log(data.active)
+    return this.http.put(this.base_url + 'menu/'+id, data, httpOptions);
+  }
+
+  deletMenu(id){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('auth')).accessToken
+    })
+    };
+    return this.http.delete(this.base_url + 'menu/'+id , httpOptions)
   }
 
   getUser() {

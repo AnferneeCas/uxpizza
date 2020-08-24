@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../api.service';
 import { AppService } from '../app.service';
+import { RouterModule, Routes } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -8,6 +8,8 @@ import { AppService } from '../app.service';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
+  public show = false;
+  
   constructor(public appService: AppService) {}
 
   ngOnInit(): void {}
@@ -16,4 +18,12 @@ export class NavbarComponent implements OnInit {
     this.appService.logOut();
     window.location.reload();
   }
+  isLogged() {
+    return this.appService.isLogged();
+  }
+  login() {
+    this.show = true;
+    console.log(this.show);
+  }
+
 }

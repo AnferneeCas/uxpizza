@@ -34,12 +34,12 @@
           </div>
         </div>
       </div> -->
-
-      <div
-        *ngFor="let menu of menu"
+      <ng-container *ngFor="let menu of menu">
+        <div
+        *ngIf="menu.active"
         class="col-12 col-md-4 d-flex justify-content-center mb-3"
       >
-        <div class="card" style="width: 18rem;">
+        <div  class="card" style="width: 18rem;">
           <img
             src="https://cdn2.cocinadelirante.com/sites/default/files/styles/gallerie/public/images/2017/04/pizzapepperoni0.jpg"
             class="card-img-top"
@@ -61,6 +61,8 @@
           </div>
         </div>
       </div>
+      </ng-container>
+      
     </div>
   </div>
   <live-chat></live-chat>

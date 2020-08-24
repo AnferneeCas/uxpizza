@@ -8,13 +8,104 @@
       <li>
         <a href="#"> <i class="fa fa-home" aria-hidden="true"></i> Homepage </a>
       </li>
+      <li>
+        
+      </li>
     </ul>
   </div>
 
   <div class="content-container">
-    <div class="container-fluid">
-      <!-- Main component for a primary marketing message or call to action -->
-      <menu-admin></menu-admin>
+    <div class="container">
+      <div class="row">
+        
+      <div class="card">
+      
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-2">Filter by:</div>
+            <div class="col-md-4">
+              <!-- <input type="text" [(ngModel)]="listFilter" /> -->
+            </div>
+          </div>
+          <!-- <div class="row" *ngIf="listFilter"></div> -->
+            <div class="col-md-6">
+              <!-- <h4>Filtered by: {{listFilter}}</h4> -->
+            </div>
+          <!-- </div> -->
+      
+          <div class="table-responsive">
+            <table class="table mb-0">
+              <thead>
+                <tr>
+                  <th>Nombre Pizza</th>
+                  <th>Detalle</th>
+                  <th>Precio</th>
+                  <th>Review</th>
+                  <th>Activo</th>
+                  <th>
+                    <button class="btn btn-outline-primary btn-sm">
+                      Agregar
+                    </button>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let Menu of menu">
+                
+                  <td>
+                      <!-- {{ product.productName }} -->
+                      {{Menu.name}}
+                  </td>
+                  <td>
+                    <!-- {{ product.productCode }} -->
+                    {{Menu.description}}
+                  </td>
+                  <td>
+                    <!-- {{ product.releaseDate }} -->
+                    L.{{Menu.price}}
+                  </td>
+                  <td>
+                    <!-- {{ product.price | currency:"L. ":"symbol" }} -->
+                    reviews
+                  </td>
+                  <td>
+                    <!-- <pm-star [rating]="product.starRating">
+                    </pm-star> -->
+                    {{Menu.active}}
+
+                  </td>
+                  <td>
+                    
+                  </td>
+                  <td>
+                    <button  class="btn btn-outline-primary btn-sm">
+                      Edit
+                    </button>
+                  </td>
+                  <td>
+                    <button (click)="delete(Menu.id)" class="btn btn-outline-primary btn-sm">
+                      Borrar
+                    </button>
+                  </td>
+                  <td>
+                    <button (click)="desactivar(Menu,Menu.id)" class="btn btn-outline-primary btn-sm">
+                      Cambiar Estado
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+      
+        </div>
+      </div>
+    <!--   
+      <div *ngIf="errorMessage"
+           class="alert alert-danger">
+        Error: {{ errorMessage }}
+      </div> -->
+    
+      </div>
     </div>
   </div>
 </div>

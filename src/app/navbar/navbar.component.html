@@ -8,9 +8,19 @@
       style="height: 44px; width: 44px;"
       alt=""
   /></a>
+  <a *ngIf="appService.isLogged() && appService.isAdmin()" style="float: right;" >
+    <button class="btn btn-danger" routerLink="/dashboard">
+      dashboard
+    </button>
+  </a>
   <a *ngIf="appService.isLogged()" style="float: right;">
     <button class="btn btn-danger" (click)="logOut()">
       Salir
+    </button>
+  </a>
+  <a *ngIf="!appService.isLogged()" style="float: right;" >
+    <button class="btn btn-danger" (click)="login()">
+      Login
     </button>
   </a>
   <a routerLink="/cart">
@@ -19,3 +29,4 @@
     </button>
   </a>
 </nav>
+<login [(show)]="show"></login>

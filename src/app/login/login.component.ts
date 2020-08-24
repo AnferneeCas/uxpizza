@@ -8,7 +8,7 @@ import {
 } from '@angular/core';
 
 import { AppService } from '../app.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router} from '@angular/router';
 @Component({
   selector: 'login',
   templateUrl: './login.component.html',
@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   accessToken;
   authEmail;
   authNombre;
-  constructor(protected appService: AppService, private route: ActivatedRoute) {
+  constructor(protected appService: AppService, private route: ActivatedRoute,private router:Router) {
     this.route.queryParams.subscribe((params) => {
       this.accessToken = params['accessToken'];
       this.authEmail = params['email'];

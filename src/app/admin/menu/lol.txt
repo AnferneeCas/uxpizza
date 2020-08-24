@@ -1,0 +1,136 @@
+<!-- <div class="col-12 col-md-4">
+      <div class="card" style="width: 18rem;">
+        <img
+          src="https://cdn2.cocinadelirante.com/sites/default/files/styles/gallerie/public/images/2017/04/pizzapepperoni0.jpg"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <h5 class="card-title">Nombre</h5>
+          <p class="card-text">
+            Some quick example text to build on the card title and make up the
+            bulk of the card's content.
+          </p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div> -->
+
+    <div class="col-12 col-md-4 d-flex justify-content-center mb-3">
+      <div class="card" style="width: 18rem;">
+        <img
+          src="https://cdn2.cocinadelirante.com/sites/default/files/styles/gallerie/public/images/2017/04/pizzapepperoni0.jpg"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <h5 class="card-title">menu.name</h5>
+          <p class="card-text">
+            menu.description
+          </p>
+          <p class="card-text">Price: <b>100</b></p>
+          <button class="btn btn-primary w-100">
+            <img
+              src="https://cdn1.iconfinder.com/data/icons/birthday-30/64/pizza_food_slice_piece_fast_-512.png"
+              style="height: 35px; width: 35px;"
+              alt=""
+            />
+            Comprar ( L. menu.price )
+          </button>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="jumbotron">
+  <h1 class="display-4">Menu de la pizzeria</h1>
+</div>
+<div class="container">
+  <div class="row">
+    
+  <div class="card">
+  
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-2">Filter by:</div>
+        <div class="col-md-4">
+          <!-- <input type="text" [(ngModel)]="listFilter" /> -->
+        </div>
+      </div>
+      <!-- <div class="row" *ngIf="listFilter"></div> -->
+        <div class="col-md-6">
+          <!-- <h4>Filtered by: {{listFilter}}</h4> -->
+        </div>
+      <!-- </div> -->
+  
+      <div class="table-responsive">
+        <table class="table mb-0">
+          <thead>
+            <tr>
+              <th>Nombre Pizza</th>
+              <th>Detalle</th>
+              <th>Precio</th>
+              <th>Review</th>
+              <th>5 Star Rating</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- <tr *ngFor="let product of filteredProducts"> -->
+            <tr>
+            
+              <td>
+                <!-- <img *ngIf="showImage && product.imageUrl"
+                     [src]="product.imageUrl"
+                     [title]="product.productName"
+                     [style.width.px]="imageWidth"
+                     [style.margin.px]="imageMargin"> -->
+              </td>
+              <td>
+                  <!-- {{ product.productName }} -->
+               
+              </td>
+              <td>
+                <!-- {{ product.productCode }} -->
+              </td>
+              <td>
+                <!-- {{ product.releaseDate }} -->
+              </td>
+              <td>
+                <!-- {{ product.price | currency:"L. ":"symbol" }} -->
+              </td>
+              <td>
+                <!-- <pm-star [rating]="product.starRating">
+                </pm-star> -->
+              </td>
+              <td>
+                <button class="btn btn-outline-primary btn-sm">
+                  Edit
+                </button>
+              </td>
+              <td>
+                <button class="btn btn-outline-primary btn-sm">
+                  Borrar
+                </button>
+              </td>
+              <td>
+                <button class="btn btn-outline-primary btn-sm">
+                  Desactivar
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  
+    </div>
+  </div>
+<!--   
+  <div *ngIf="errorMessage"
+       class="alert alert-danger">
+    Error: {{ errorMessage }}
+  </div> -->
+
+  </div>
+</div>
