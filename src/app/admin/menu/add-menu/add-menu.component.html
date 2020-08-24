@@ -1,0 +1,31 @@
+<div class="container">
+    <h1>Add to Menu</h1>
+    <form [formGroup]="newMenuForm" novalidate (ngSubmit)="addToMenu(newMenuForm.value)">
+
+        
+
+        <div class="form-group">
+            <label for="pizzaName">Nombre de la pizza</label>
+            <input formControlName="namePizza" type="text" class="form-control" id="namePizza" required name="namePizza">
+        </div>
+
+        <div class="form-group">
+            <label for="descriptionPizza">Descripcion de la pizza</label>
+            <input formControlName="descriptionPizza" type="text" class="form-control" id="descriptionPizza" required name="descriptionPizza">
+        </div>
+
+        <div class="form-group">
+            <label for="pricePizza">Precio de la pizza</label>
+            <input formControlName="pricePizza" type="number" class="form-control" id="pricePizza" name="pricePizza">
+        </div>
+
+        <div class="form-group">
+            <label for="activePizza">Activo</label>
+            <input formControlName="activePizza" type="number" class="form-control" id="activePizza" name="activePizza">
+        </div>
+
+        <button type="submit" class="btn btn-success">Save</button>
+        <button type="button" class="btn btn-default" (click)="cancel()">Cancelar</button>
+
+    </form>
+</div>

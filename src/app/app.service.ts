@@ -17,6 +17,10 @@ export class AppService {
     return this.http.get(this.base_url + 'menu');
   }
 
+  getMenuItem(id){
+    return this.http.get(this.base_url + 'menu/'+ id);
+  }
+
   register(data) {
     return this.http.post(this.base_url + 'users', data);
   }
@@ -45,7 +49,7 @@ export class AppService {
     return this.http.post(this.base_url + 'order', data);
   }
 
-  addToMenu(id,data) {
+  addToMenu(data) {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',
@@ -55,7 +59,7 @@ export class AppService {
     return this.http.post(this.base_url + 'menu', data, httpOptions);
   }
 
-  desactivarMenu(data,id){
+  updateMenu(data,id){
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',
@@ -66,7 +70,7 @@ export class AppService {
     return this.http.put(this.base_url + 'menu/'+id, data, httpOptions);
   }
 
-  deletMenu(id){
+  deleMenu(id){
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',

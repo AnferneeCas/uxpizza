@@ -1,0 +1,41 @@
+<div class="card">
+    <div class="card-body">
+        <form [formGroup]="editMenuForm" novalidate (ngSubmit)="submitForm(editMenuForm.value)">
+            
+            <div class="form-group row mb-2">
+                <label class="col-md-2 col-form-label" for="namePizza">Nombre de la pizza</label>
+                <div class="col-md-8">
+                    <input formControlName="namePizza" class="form-control" id="namePizza" type="text" placeholder="Nombre (required)"/>
+                </div>
+            </div>
+
+            <div class="form-group row mb-2">
+                <label class="col-md-2 col-form-label" for="descriptionPizza">Descripción de la pizza</label>
+                <div class="col-md-8">
+                    <input formControlName="descriptionPizza" class="form-control" id="descriptionPizza" type="text" placeholder="Descripción (required)"/>
+                </div>
+            </div>
+
+            <div class="form-group row mb-2">
+                <label class="col-md-2 col-form-label" for="pricePizza">Precio de la pizza</label>
+                <div class="col-md-8">
+                    <input formControlName="pricePizza" class="form-control" id="pricePizza" type="number" placeholder="Precio (required)"/>
+                </div>
+            </div>
+
+            <div class="form-group row mb-2">
+                <label class="col-md-2 col-form-label" for="activePizza">Pizza Activa</label>
+                <div class="col-md-8">
+                    <input formControlName="activePizza" class="form-control" id="activePizza" type="number" placeholder="Activa (required)"/>
+                </div>
+            </div>
+
+            <div class="form-group row mb-2">
+                <div class="offset-md-2 col-md-4">
+                    <button class="btn btn-primary mr-3" style="width:80px;" type="submit">Guardar</button>
+                    <button class="btn btn-outline-secondary mr-3" style="width:80px;" type="button" title="Cancelar" (click)="cancel()">Cancelar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

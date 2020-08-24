@@ -9,12 +9,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './login/login.component';
 import { LiveChatComponent } from './live-chat/live-chat.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminLoginComponent } from '../app/admin/login/login.component';
 import { MenuComponent } from '../app/admin/menu/menu.component';
 import { DashboardComponent } from '../app/admin/dashboard/dashboard.component';
 import { Feathers } from './feathers.service';
 import { ApiService } from './api.service';
+import { AddMenuComponent } from './admin/menu/add-menu/add-menu.component';
+import { EditMenuComponent } from './admin/menu/edit-menu/edit-menu.component';
 
 @NgModule({
   declarations: [
@@ -27,8 +29,10 @@ import { ApiService } from './api.service';
     AdminLoginComponent,
     MenuComponent,
     DashboardComponent,
+    AddMenuComponent,
+    EditMenuComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, ReactiveFormsModule],
   providers: [Feathers, ApiService],
   bootstrap: [AppComponent],
 })

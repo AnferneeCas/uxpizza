@@ -25,7 +25,7 @@ export class DashboardComponent implements OnInit{
 
   desactivar(x:any,id){
    x.active= !x.active
-    this.appService.desactivarMenu(x,id).subscribe((result: any) => {
+    this.appService.updateMenu(x,id).subscribe((result: any) => {
       console.log(result);
     })
   }
@@ -34,7 +34,7 @@ export class DashboardComponent implements OnInit{
     console.log(this.show);
   }
   delete(x:any){
-    this.appService.deletMenu(x).subscribe((result: any) => {
+    this.appService.deleMenu(x).subscribe((result: any) => {
       console.log(result);
     })
   }
