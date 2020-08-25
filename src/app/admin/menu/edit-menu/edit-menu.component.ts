@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AppService } from '../../../app.service';
 import { Router, ActivatedRoute } from '@angular/router';
-//import { interface } from '...'
-
 
 @Component({
   selector: 'app-edit-menu',
@@ -15,7 +13,6 @@ export class EditMenuComponent implements OnInit {
   //Formulario
   editMenuForm: FormGroup;
   //Inputs
-  id: FormControl;
   name: FormControl;
   description: FormControl;
   price: FormControl;

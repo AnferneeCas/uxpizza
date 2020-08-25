@@ -17,6 +17,7 @@ import { Feathers } from './feathers.service';
 import { ApiService } from './api.service';
 import { AddMenuComponent } from './admin/menu/add-menu/add-menu.component';
 import { EditMenuComponent } from './admin/menu/edit-menu/edit-menu.component';
+import { ReviewsComponent } from './landing-page/reviews/reviews.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { EditMenuComponent } from './admin/menu/edit-menu/edit-menu.component';
     DashboardComponent,
     AddMenuComponent,
     EditMenuComponent,
+    ReviewsComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, ReactiveFormsModule],
   providers: [Feathers, ApiService],
