@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
 import { AppService } from '../app.service';
 import { CartService } from '../cart/cart.service';
+import { RouteConfigLoadEnd, Router } from '@angular/router';
 declare var swal;
 @Component({
   selector: 'app-cart',
@@ -13,7 +14,8 @@ export class CartComponent implements OnInit {
   constructor(
     private cdRef: ChangeDetectorRef,
     protected appService: AppService,
-    protected cartService: CartService
+    protected cartService: CartService,
+    protected router: Router
   ) {}
   ngAfterViewChecked() {
     this.cdRef.detectChanges();
@@ -58,6 +60,7 @@ export class CartComponent implements OnInit {
         icon: 'success',
         text: 'Gracias por tu compra',
       });
+      
     });
   }
 
