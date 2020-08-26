@@ -39,6 +39,8 @@ export class DashboardComponent implements OnInit{
     this.appService.deleMenu(x).subscribe((result: any) => {
       console.log(result);
     })
+    window.location.reload();
+
   }
   agregar(){
     this.router.navigate(["/add"])
