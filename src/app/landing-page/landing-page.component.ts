@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AppService } from '../app.service';
 import { CartService } from '../cart/cart.service';
 import * as _ from 'lodash';
+import { RouterModule, Routes } from '@angular/router';
+
 
 declare var swal;
 declare var uuid;
@@ -14,7 +16,8 @@ export class LandingPageComponent implements OnInit {
   public menu = [];
   constructor(
     protected appService: AppService,
-    protected cartService: CartService
+    protected cartService: CartService,
+    
   ) {}
 
   ngOnInit(): void {

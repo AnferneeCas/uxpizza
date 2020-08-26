@@ -1,0 +1,59 @@
+<div class="content-container">
+    <div class="container">
+        <div class="row">
+            <div class="card">
+                <div class="card-body"> 
+                <div class="table-responsive">
+                    <table class="table mb-0">
+                    <thead>
+                        <tr>
+                        <th>Nombre Pizza</th>
+                        <th>Detalle</th>
+                        <th>Precio</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let Menu of menu">
+                        
+                        <td>
+                            <!-- {{ product.productName }} -->
+                            {{Menu.name}}
+                        </td>
+                        <td>
+                            <!-- {{ product.productCode }} -->
+                            {{Menu.description}}
+                        </td>
+                        <td>
+                            <!-- {{ product.releaseDate }} -->
+                            L.{{Menu.price}}
+                        </td>
+                        <td>
+                            aqui va cantidad
+                        </td>
+                        </tr>
+                    </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>   
+    </div>
+</div>
+
+html: '
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>Pizza</th>
+                <th>Descripcion</th>
+                <th>Cantidad</th>
+                <th>Precio</th>
+            </tr>
+        </thead>
+        <tbody>' + content + '</tbody>
+    </table>
+</div>'
+
+var content = results.reduce(function(a, b) {
+    return a + '<tr><td>' + b.name + '</a></td><td>' + b.description + '</td><td>' + b.qt + '</td><td>' + b.price + '</td></tr>';
+  }, '');

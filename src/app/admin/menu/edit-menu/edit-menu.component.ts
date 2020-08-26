@@ -43,9 +43,10 @@ export class EditMenuComponent implements OnInit {
       this.menu = data;
       console.log(data)
     })
-    this.editMenuForm.controls['name'].setValue(this.menu.name)
-    this.editMenuForm.controls['description'].setValue(this.menu.description)
-    this.editMenuForm.controls['price'].setValue(this.menu.price)
+    this.name.setValue(this.menu.name)
+    this.description.setValue(this.menu.description)
+    this.price.setValue(this.menu.price)
+
 
 
   }

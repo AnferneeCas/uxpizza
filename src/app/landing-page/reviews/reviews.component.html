@@ -1,39 +1,73 @@
-<h1>Deja tu comentario!</h1>
+
+            <!--    PARTE SUPERIOR PAGINA        -->
 <br>
 <br>
 <br>
-<div class="card">
-    <div class="card-body">
-        <form [formGroup]="reviewsForm" novalidate (ngSubmit)="submitForm(reviewsForm.value)">
+<br>
+<br>
 
-            <div class="form-group row mb-2">
-                <label class="col-md-2 col-form-label" for="userName">Nombre</label>
-                <div class="col-md-8">
-                    <input formControlName="name" class="form-control" id="name" type="text" placeholder="Ingrese su nombre..."/>
-                </div>
+<div class="container card">
+    <div class="row ">
+        <div class="col-md-4">
+            <br>
+            <div class="col">
+                <br>
+                <img class="img-fluid" width="280" height="280" src="https://wallpapercave.com/wp/wp1813251.jpg" alt="">
             </div>
-
-            <div class="form-group row mb-2">
-                <label class="col-md-2 col-form-label" for="userEmail">Email</label>
-                <div class="col-md-8">
-                    <input formControlName="email" class="form-control" id="email" type="text" placeholder="Ingrese su email..."/>
-                </div>
+            <div class="col">
+               <h3> Nombre: </h3> <p> {{ menu.name }} </p>
             </div>
-
-            <div class="form-group row mb-2">
-                <label class="col-md 2 col-form-label" for="review">Review</label>
-                <div class="col-md-8">
-                    <textarea id="review" formControlName="review" name="review" row="4" cols="50"></textarea>
-                </div>
+            <div class="col">
+                <h3>Descripcion:</h3> <p> {{ menu.description }}</p>
             </div>
+        </div>
 
-            <div class="form-group row mb-2">
-                <div class="offset-md 2 col-md-4">
-                    <button class="btn btn-primary mr-3" style="width:100px;" type="submit">Enviar</button>
-                    <button class="btn btn-outline-secondary mr-3" style="width:100px;" type="button" title="Cancelar" (click)="cancel()">Cancelar</button>
-                </div>
+    <div class="col">
+        <h1>Deja tu comentario!</h1>
+            <div class="card-body">
+                <form [formGroup]="reviewsForm" novalidate (ngSubmit)="submitForm(reviewsForm.value)">
+                    
+                    <div class="form-group row mb-2">
+                        <label class="col-md-2 col-form-label" for="userName">Nombre</label>
+                        <div class="col-md-8">
+                            <input formControlName="user" class="form-control" id="user" type="text" placeholder="Ingrese su nombre..."/>
+                        </div>
+                    </div>
+            
+                    <div class="form-group row mb-2">
+                        <label class="col-md-2 col-form-label" for="review">Review</label>
+                        <div class="col">
+                            <textarea id="review" formControlName="review" name="review" row="4" cols="50"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group row " >
+                        <div class="d-flex justify-content-center">
+                            <button class="btn btn-primary mr-3" style="width:100px;" type="submit">Enviar</button>
+                        </div>
+                    </div>
+                </form>
             </div>
-
-        </form>
+        </div>
     </div>
+</div>
+
+<br>
+<br>
+<br>
+
+<!--    PARTE INFERIOR PAGINA        -->
+<div class="container ">
+    <ng-container *ngFor="let rev of reviews">
+        <div *ngIf="rev.id_pizza == menu.id">
+                <div class="row-md-11 margin-left">
+                    <br>
+                    {{rev.user}}
+                    <br>
+                </div>
+                <div class="row-md-11 margin-left">
+                    <p>{{ rev.review }}</p>
+                </div>
+        </div>
+    </ng-container>
 </div>

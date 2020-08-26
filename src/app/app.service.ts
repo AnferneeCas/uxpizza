@@ -13,24 +13,16 @@ export class AppService {
     this.auth = storageAuth;
   }
   public auth = null;
-  getMenu() {
-    return this.http.get(this.base_url + 'menu');
-  }
-
-  getMenuItem(id){
-    return this.http.get(this.base_url + 'menu/'+ id);
-  }
-
+  
+  //login
   register(data) {
     return this.http.post(this.base_url + 'users', data);
   }
-
   setAuth(data) {
     console.log(data);
     this.auth = data;
     localStorage.setItem('auth', JSON.stringify(data));
   }
-
   isLogged() {
     if (this.auth?.accessToken) {
       return true;
@@ -40,15 +32,14 @@ export class AppService {
   loginGithub() {
     window.location.href = 'http://localhost:3030/oauth/github';
   }
-
   login(data) {
     return this.http.post(this.base_url + 'authentication', data);
   }
-
+  //ordr
   placeOrder(data) {
     return this.http.post(this.base_url + 'order', data);
   }
-
+  //menu
   addToMenu(data) {
     const httpOptions = {
       headers: new HttpHeaders({
@@ -59,7 +50,6 @@ export class AppService {
     console.log(data)
     return this.http.post(this.base_url + 'menu', data, httpOptions);
   }
-
   updateMenu(data,id){
     const httpOptions = {
       headers: new HttpHeaders({
@@ -70,7 +60,6 @@ export class AppService {
     console.log(data.active)
     return this.http.put(this.base_url + 'menu/'+id, data, httpOptions);
   }
-
   deleMenu(id){
     const httpOptions = {
       headers: new HttpHeaders({
@@ -80,18 +69,30 @@ export class AppService {
     };
     return this.http.delete(this.base_url + 'menu/'+id , httpOptions)
   }
-
+  getMenu() {
+    return this.http.get(this.base_url + 'menu');
+  }
+  getMenuItem(id){
+    return this.http.get(this.base_url + 'menu/'+ id);
+  }
+  //user
   getUser() {
     return this.auth.user.email;
   }
   getEmail() {
     return this.auth.user.email;
   }
-
   isAdmin() {
     return this.auth.user.admin;
   }
   logOut() {
     localStorage.removeItem('auth');
+  }
+  //reviews
+  getReviews(){
+    return this.http.get(this.base_url + 'reviews');
+  }
+  addReviews(data){
+    return this.http.post(this.base_url + 'reviews', data);
   }
 }

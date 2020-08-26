@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../../app.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { FormGroup,FormControl,Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-reviews',
@@ -11,24 +11,23 @@ import { FormGroup,FormControl,Validators } from '@angular/forms';
 export class ReviewsComponent implements OnInit {
 
   //Formulario
-  reviewsForm: FormGroup;
+  
   //Inputs
-  name: FormControl;
-  email: FormControl;
+  user: FormControl;
   review: FormControl;
+  reviewsForm: FormGroup;
 
   menu: any
+  reviews: any
 
   constructor(private service: AppService, private router: Router, private route: ActivatedRoute) { 
 
-    this.name = new FormControl('', [Validators.required])
-    this.email = new FormControl('',[Validators.required])
+    this.user = new FormControl('',[Validators.required])
     this.review = new FormControl('',[Validators.required])
 
     this.reviewsForm = new FormGroup({
 
-      name: this.name,
-      email: this.email,
+      user: this.user,
       review: this.review
 
     })
@@ -36,16 +35,32 @@ export class ReviewsComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    //
+    this.service.getMenuItem(+this.route.snapshot.params["id"]).subscribe(data => {
+      this.menu = data;
+    });
+    this.service.getReviews().subscribe((result:any)=>{
+      this.reviews= result.data
+      console.log(this.reviews)
+    });
   }
 
   submitForm(item){
-    //TODO
-    this.router.navigate(['/dashboard'])
+    item.id_pizza= this.menu.id
+    let aqi= this.menu.id
+    if(this.user.dirty){
+      this.service.addReviews(item).subscribe(data=>{
+        this.user.setValue("")
+        this.review.setValue("")
+        window.location.reload();
+      })
+  }
   }
 
   cancel(){
     this.router.navigate(['/dashboard'])
+  }
+  isLogged() {
+    return this.service.isLogged();
   }
 
 }

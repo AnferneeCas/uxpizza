@@ -8,13 +8,15 @@ import { AdminLoginComponent } from '../app/admin/login/login.component';
 import { DashboardComponent } from '../app/admin/dashboard/dashboard.component';
 import { EditMenuComponent } from './admin/menu/edit-menu/edit-menu.component';
 import { AddMenuComponent } from './admin/menu/add-menu/add-menu.component';
+import { ReviewsComponent } from './landing-page/reviews/reviews.component';
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'cart', component: CartComponent },
   { path: '', component: LandingPageComponent },
   { path: 'admin', component: AdminLoginComponent },
   { path: 'edit/:id', component: EditMenuComponent},
-  { path: 'add', component: AddMenuComponent}
+  { path: 'add', component: AddMenuComponent},
+  { path: 'review/:id', component: ReviewsComponent }
 ];
 
 @NgModule({

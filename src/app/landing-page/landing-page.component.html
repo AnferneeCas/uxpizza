@@ -40,11 +40,15 @@
         class="col-12 col-md-4 d-flex justify-content-center mb-3"
       >
         <div  class="card" style="width: 18rem;">
-          <img
-            src="https://cdn2.cocinadelirante.com/sites/default/files/styles/gallerie/public/images/2017/04/pizzapepperoni0.jpg"
-            class="card-img-top"
-            alt="..."
-          />
+          <a routerLink="/review/{{menu.id}}">
+            <div class="view overlay zoom">
+              <img
+                src="https://cdn2.cocinadelirante.com/sites/default/files/styles/gallerie/public/images/2017/04/pizzapepperoni0.jpg"
+                class="card-img-top hoverable"
+                alt="..."
+              />
+            </div>
+          </a>
           <div class="card-body">
             <h5 class="card-title">{{ menu.name }}</h5>
             <p class="card-text">

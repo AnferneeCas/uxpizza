@@ -88,35 +88,35 @@
           <hr style="width: 100%; background-color: black; margin: 0;" />
         </div>
 
-        <div
-          style="height: calc(100% - 162px);"
-          class="w-100 d-flex align-items-center"
-        >
-          <button
-            *ngIf="!isLogged()"
-            class="btn btn-success w-100 mt-1 mb-1"
-            (click)="login()"
-          >
-            Iniciar Sesion para realizar compra
-          </button>
-          <div *ngIf="isLogged()" class="container">
-            <div class="row">
-              <div class="col-12">
-                <button
-                  *ngIf="isLogged() && this.cart.length"
-                  (click)="sendOrder()"
-                  class="btn btn-info w-100 mt-1 mb-1"
-                >
-                  Realizar compra
-                </button>
-              </div>
-              <br />
-              <div class="col-12 text-center" *ngIf="isLogged()">
-                Recibiras un correo en : {{ getEmail() }}
+
+          <form [formGroup]="addressForm" (ngSubmit)="sendOrder(addressForm.value)" autocomplete="off" >
+
+            <div >
+              <label>Direccion de envio</label>
+              <input formControlName="address" type="text" class="form-control" id="address" required name="address">    
+            </div>
+
+            <div style="height: calc(100% - 162px);" class="w-100 d-flex align-items-center" >
+              <button *ngIf="!isLogged()" class="btn btn-success w-100 mt-1 mb-1" (click)="login()" >
+                Iniciar Sesion para realizar 
+              </button>
+            </div>
+
+            <div *ngIf="isLogged()" class="container">
+              <div class="row">
+                <div class="col-12">
+                  <button *ngIf="isLogged() && this.cart.length" class="btn btn-info w-100 mt-1 mb-1">
+                    Realizar compra
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
+          </form> 
+
+                <br />
+                <div class="col-12 text-center" *ngIf="isLogged()">
+                  Recibiras un correo en : {{ getEmail() }}
+                </div>        
       </div>
     </div>
   </div>
